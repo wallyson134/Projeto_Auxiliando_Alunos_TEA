@@ -1,15 +1,114 @@
+/* index.css — Sistema de design global do MundoLúdico */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+/* ── Reset ────────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ── Tokens de design ─────────────────────────────────────────────────────── */
+:root {
+  /* Texto — contraste elevado */
+  --text-primary:   #1F2937;
+  --text-secondary: #4B5563;
+  --text-muted:     #6B7280;
+
+  /* Superfícies */
+  --bg-page:   #FFF9F0;
+  --bg-card:   #FFFFFF;
+  --bg-header: #FFFDF8;
+
+  /* Bordas — mais visíveis */
+  --border-default: #E5E7EB;
+  --border-strong:  #D1D5DB;
+
+  /* Paleta principal */
+  --yellow:        #FFD166;
+  --yellow-dark:   #E6A800;
+  --yellow-light:  #FFF0C2;
+  --orange:        #E07B39;
+
+  /* Paleta por atividade */
+  --memory-color:   #1D6FA4;
+  --memory-bg:      #EBF5FB;
+  --memory-border:  #A8D5F5;
+
+  --routine-color:  #3B6D11;
+  --routine-bg:     #EAF3DE;
+  --routine-border: #C0DD97;
+
+  --comm-color:     #B45309;
+  --comm-bg:        #FEF3C7;
+  --comm-border:    #FCD34D;
+
+  --social-color:   #9D174D;
+  --social-bg:      #FCE7F3;
+  --social-border:  #F9A8D4;
+
+  /* Feedback */
+  --success: #16A34A;
+  --error:   #DC2626;
+
+  /* Animações */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
 body {
   font-family: 'Nunito', sans-serif;
-  background: #FFF9F0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ── Microinterações globais ─────────────────────────────────────────────── */
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Animação de acerto */
+@keyframes pop-correct {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* Animação de erro */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25%       { transform: translateX(-6px); }
-  75%       { transform: translateX(6px); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+/* Animação de entrada dos cards */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Brilho de vitória */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(255, 209, 102, 0); }
+}
+
+/* ── Modo baixo estímulo ─────────────────────────────────────────────────── */
+/* Aplicado via classe .low-stimulus no <body> pelo SensoryToggle */
+body.low-stimulus * {
+  animation: none !important;
+  transition: none !important;
+}
+body.low-stimulus {
+  --bg-page:   #F9FAFB;
+  --bg-card:   #FFFFFF;
+  --yellow:    #D1D5DB;
+  --yellow-light: #F3F4F6;
+  filter: saturate(0.5);
 }
