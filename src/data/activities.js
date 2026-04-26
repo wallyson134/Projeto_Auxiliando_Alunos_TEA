@@ -35,4 +35,13 @@ export const ACTIVITIES = [
     stars: 0,
     color: { bg: "#FBEAF0", border: "#F4C0D1", borderHover: "#D4537E" },
   },
+  {
+  id: "sounds",
+  icon: "🔊",
+  label: "Sons dos Animais",
+  desc: "Ouça e descubra o animal",
+  stars: 0,
+  isNew: true,
+  color: { bg: "#E6F1FB", border: "#B5D4F4", borderHover: "#185FA5" },
+  },
 ];

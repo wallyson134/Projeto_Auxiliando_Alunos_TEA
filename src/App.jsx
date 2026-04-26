@@ -3,6 +3,11 @@ import Home   from "./components/Home"
 import Memory from "./pages/Memory"
 import Routine from "./pages/Routine"
 import Emotions from "./pages/Emotions"
+import AnimalSounds from "./pages/AnimalSounds"
+import PictureCommunication from "./pages/PictureCommunication"
+
+
+// dentro do <Routes>:
 
 // dentro do <Routes>:
 
@@ -16,6 +21,8 @@ export default function App() {
         <Route path="/memory" element={<Memory onBack={() => window.history.back()} />} />
         <Route path="/sequence" element={<Routine />} />
         <Route path="/social" element={<Emotions />} />
+        <Route path="/sounds" element={<AnimalSounds />} />
+        <Route path="/comm" element={<PictureCommunication />} />
       </Routes>
     </BrowserRouter>
   )
