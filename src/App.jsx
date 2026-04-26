@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home   from "./components/Home"
 import Memory from "./pages/Memory"
+import Routine from "./pages/Routine"
+
+// dentro do <Routes>:
 
 export default function App() {
   return (
@@ -8,6 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/"       element={<Home />} />
         <Route path="/memory" element={<Memory onBack={() => window.history.back()} />} />
+        <Route path="/sequence" element={<Routine />} />
       </Routes>
     </BrowserRouter>
   )
