@@ -5,6 +5,7 @@ import Routine from "./pages/Routine"
 import Emotions from "./pages/Emotions"
 import AnimalSounds from "./pages/AnimalSounds"
 import PictureCommunication from "./pages/PictureCommunication"
+import ShapeSorter from "./pages/ShapeSorter"
 
 
 // dentro do <Routes>:
@@ -23,6 +24,8 @@ export default function App() {
         <Route path="/social" element={<Emotions />} />
         <Route path="/sounds" element={<AnimalSounds />} />
         <Route path="/comm" element={<PictureCommunication />} />
+        
+        <Route path="/shapes" element={<ShapeSorter />} />
       </Routes>
     </BrowserRouter>
   )

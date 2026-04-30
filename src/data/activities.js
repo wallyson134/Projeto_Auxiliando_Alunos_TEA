@@ -44,4 +44,13 @@ export const ACTIVITIES = [
   isNew: true,
   color: { bg: "#E6F1FB", border: "#B5D4F4", borderHover: "#185FA5" },
   },
+  {
+  id: "shapes",
+  icon: "🔷",
+  label: "Encaixe as Formas",
+  desc: "Encaixe cada forma no lugar certo",
+  stars: 0,
+  isNew: true,
+  color: { bg: "#EEEDFE", border: "#AFA9EC", borderHover: "#534AB7" },
+},
 ];
