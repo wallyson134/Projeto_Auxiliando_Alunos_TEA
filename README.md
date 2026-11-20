@@ -1,18 +1,29 @@
-# React + Vite
+# MundoLúdico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação educativa desenvolvida com React e Vite.
 
-Currently, two official plugins are available:
+## Executar localmente
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Instale o Node.js.
+2. Na pasta do projeto, instale as dependências:
 
-## React Compiler
+   ```sh
+   npm install
+   ```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+3. Inicie o servidor de desenvolvimento:
 
-Note: This will impact Vite dev & build performances.
+   ```sh
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+4. Abra no navegador o endereço mostrado no terminal (normalmente `http://localhost:5173`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Não abra `index.html` diretamente pelo navegador nem use uma extensão de servidor estático. Os módulos e as dependências do projeto precisam ser servidos pelo Vite.
+
+## Verificar a versão de produção
+
+```sh
+npm run build
+npm run preview
+```

@@ -1,32 +1,42 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home   from "./components/Home"
-import Memory from "./pages/Memory"
-import Routine from "./pages/Routine"
-import Emotions from "./pages/Emotions"
-import AnimalSounds from "./pages/AnimalSounds"
-import PictureCommunication from "./pages/PictureCommunication"
-import ShapeSorter from "./pages/ShapeSorter"
+// App.jsx — Rotas do MundoLúdico (atividades + telas da barra inferior)
 
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ProgressProvider } from "./context/ProgressContext";
 
-// dentro do <Routes>:
-
-// dentro do <Routes>:
-
-// dentro do <Routes>:
+import Home                from "./components/Home";
+import Memory              from "./pages/Memory";
+import Routine             from "./pages/Routine";
+import PictureCommunication from "./pages/PictureCommunication";
+import Emotions            from "./pages/Emotions";
+import AnimalSounds        from "./pages/AnimalSounds";
+import ShapeSorter         from "./pages/ShapeSorter";
+import Progress            from "./pages/Progress";
+import Achievements        from "./pages/Achievements";
+import Settings            from "./pages/Settings";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/"       element={<Home />} />
-        <Route path="/memory" element={<Memory onBack={() => window.history.back()} />} />
-        <Route path="/sequence" element={<Routine />} />
-        <Route path="/social" element={<Emotions />} />
-        <Route path="/sounds" element={<AnimalSounds />} />
-        <Route path="/comm" element={<PictureCommunication />} />
-        
-        <Route path="/shapes" element={<ShapeSorter />} />
-      </Routes>
-    </BrowserRouter>
-  )
+    <ProgressProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/"           element={<Home />} />
+
+          {/* Atividades — o path é o `id` em data/activities.js */}
+          <Route path="/memory"     element={<Memory />} />
+          <Route path="/sequence"   element={<Routine />} />
+          <Route path="/comm"       element={<PictureCommunication />} />
+          <Route path="/social"     element={<Emotions />} />
+          <Route path="/sounds"     element={<AnimalSounds />} />
+          <Route path="/shapes"     element={<ShapeSorter />} />
+
+          {/* Barra de navegação inferior */}
+          <Route path="/progresso"  element={<Progress />} />
+          <Route path="/conquistas" element={<Achievements />} />
+          <Route path="/config"     element={<Settings />} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ProgressProvider>
+  );
 }
